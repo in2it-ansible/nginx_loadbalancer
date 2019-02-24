@@ -1,0 +1,9 @@
+---
+# defaults file for loadbalancer
+
+nginx_timezone: UTC
+nginx_apt_key: https://nginx.org/keys/nginx_signing.key
+nginx_apt_keyid: ABF5BD827BD9BF62
+nginx_apt_list: "deb http://nginx.org/packages/debian {{ ansible_lsb.codename }} nginx"
+server_hostname: lb.example.com
+package: nginx
