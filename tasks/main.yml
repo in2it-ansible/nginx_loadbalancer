@@ -1,6 +1,10 @@
 ---
 # tasks file for loadbalancer
 
+- name: Set timezone
+  timezone:
+    name: "{{ nginx_timezone }}"
+
 - name: Install Nginx key
   apt_key:
     id: "{{ nginx_apt_keyid }}"
