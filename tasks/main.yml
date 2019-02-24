@@ -7,6 +7,10 @@
     url: "{{ nginx_apt_key }}"
     state: present
     keyring: /etc/apt/trusted.gpg.d/ansible.gpg
+  register: nginx_key_install
+  until: nginx_key_install is success
+  retries: 3
+  delay: 2
 
 - name: Add official Nginx repository
   apt_repository:
@@ -17,8 +21,12 @@
 - name: Install nginx
   apt:
     name: "{{ package }}"
-    state: latest
+    state: present
     update_cache: true
+  register: nginx_install
+  until: nginx_install is success
+  retries: 3
+  delay: 2
 
 - name: Remove default config
   file:
