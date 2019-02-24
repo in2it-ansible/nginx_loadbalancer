@@ -1,6 +1,8 @@
 Nginx Loadbalancer
 ==================
 
+[![Build Status](https://travis-ci.org/in2it-ansible/nginx_loadbalancer.svg?branch=master)](https://travis-ci.org/in2it-ansible/nginx_loadbalancer)
+
 This role sets up a simple load balancing reverse proxy using [Nginx](https://www.nginx.org).
 
 Requirements
@@ -27,7 +29,7 @@ The following variables are used in `templates/loadbalancer.conf`:
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependencies
 
 Example Inventory
 -----------------
@@ -47,8 +49,6 @@ Example Inventory
 
 Example Playbook
 ----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - name: Provision boxes
       hosts: all
