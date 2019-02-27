@@ -36,9 +36,9 @@ Example Inventory
 
 
     [all]
-    lb ansible_host=192.168.1.1 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/lb/virtualbox/private_key ansible_ssh_common_args="-o 'StrictHostKeyChecking no'"
-    web1 ansible_host=192.168.2.1 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/web1/virtualbox/private_key ansible_ssh_common_args="-o 'StrictHostKeyChecking no'"
-    web2 ansible_host=192.168.2.2 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/web2/virtualbox/private_key ansible_ssh_common_args="-o 'StrictHostKeyChecking no'"
+    lb ansible_host=192.168.1.1
+    web1 ansible_host=192.168.2.1
+    web2 ansible_host=192.168.2.2
     
     [lb]
     lb
@@ -60,14 +60,14 @@ Example Playbook
       hosts: web
       become: true
       roles: 
-        - { role: nginx, tags: [ 'nginx', 'web' ] }
+        - { role: dragonbe.nginx_fcgi, tags: [ 'nginx', 'web', 'fcgi' ] }
     
     - name: Setup load balancer
       hosts:
         - lb
       become: true
       roles:
-        - { role: loadbalancer, tags: ['lb', 'nginx', 'web']}
+        - { role: dragonbe.nginx_loadbalancer, tags: ['lb', 'nginx', 'web']}
 
 License
 -------
